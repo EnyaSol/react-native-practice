@@ -5,7 +5,7 @@ import {Font} from "expo";
 export default class Clock extends Component {
     constructor(props){
         super(props);
-        this.state = { time : new Date().toLocaleString()}
+        this.state = { time : new Date()}
     }
 
     componentDidMount() {
@@ -26,7 +26,7 @@ export default class Clock extends Component {
     }
 
     renderMilliseconds(){
-        let milliseconds = new Date().getMilliseconds()
+        let milliseconds = new Date().getMilliseconds();
         return(
             <Text style={styles.clockText}>
                 {milliseconds}
@@ -85,7 +85,6 @@ export default class Clock extends Component {
             <View style={styles.container}>
                 {this.renderMonthDayYear()}
                 {this.renderHourMinuteSec()}
-                {this.renderMilliseconds()}
             </View>
         )
     }
