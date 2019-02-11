@@ -63,11 +63,15 @@ export default class Clock extends Component {
 
     renderMonthDayYear(){
         let splitDateArr = this.state.time.toLocaleString().split(' ');
-        let day = splitDateArr[0];
-        let month = splitDateArr[1];
-        let date = splitDateArr[2];
-        let year = splitDateArr[4];
+        let day = 0, month = 0, date = 0, year = 0;
+        if(splitDateArr != null) {
 
+            day = splitDateArr[0];
+            month = splitDateArr[1];
+            date = splitDateArr[2];
+            year = splitDateArr[4];
+
+        }
         return(
             <Text style={styles.clockText}>
                 {month} - {date} - {year}
