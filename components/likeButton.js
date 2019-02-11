@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {Alert, TouchableNativeFeedback, StyleSheet, Platform, View, Text} from 'react-native';
+import {Button, ThemeProvider} from 'react-native-elements';
 
 
 export default class LikeButton extends Component {
@@ -12,13 +13,7 @@ export default class LikeButton extends Component {
 
     render(){
         return(
-            <TouchableNativeFeedback
-                onPress={this._onPressButton}
-                background={Platform.OS === 'android' ? TouchableNativeFeedback.SelectableBackground() : ''}>
-                <View style={styles.button}>
-                    <Text style={styles.buttonText}>Like this Time</Text>
-                </View>
-            </TouchableNativeFeedback>
+            <Button text="Like this time!" buttonStyle={styles.button}/>
         )
     }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, TextInput, View, ScrollView, Button, TouchableHighlight, TouchableOpacity, TouchableNativeFeedback, TouchableWithoutFeedback, Alert, Platform} from 'react-native';
+import { StyleSheet, View} from 'react-native';
+import {Header, ThemeProvider } from 'react-native-elements';
 import Clock from './components/clock';
 import ShareButton from './components/shareButton';
 import LikeButton from './components/likeButton';
@@ -10,14 +11,15 @@ export default class App extends React.Component {
 
   render() {
     return (
-      <View style={styles.container}>
-        <Clock/>
-        <View style={styles.buttonContainer}>
-          <LikeButton style={styles.likeButton}/>
-
-          <ShareButton style={styles.shareButton}/>
+      <ThemeProvider>
+        <View style={styles.container}>
+          <Clock style={styles.clock}/>
+          <View style={styles.buttonContainer}>
+            <LikeButton style={styles.likeButton}/>
+            <ShareButton style={styles.shareButton}/>
+          </View>
         </View>
-      </View>
+      </ThemeProvider>
     );
   }
 }
@@ -34,13 +36,18 @@ const styles = StyleSheet.create({
   buttonContainer: {
     flexDirection: 'column',
     justifyContent: 'space-around',
-    alignItems: 'center'
+    alignItems: 'center',
+    backgroundColor: 'pink'
   },
   likeButton: {
     flex: 1,
   },
   shareButton: {
     flex: 1,
+  },
+  clock :{
+    flex: 1,
+    backgroundColor: 'red'
   }
 
 });

@@ -26,7 +26,7 @@ export default class Clock extends Component {
     }
 
     renderMilliseconds(){
-        let milliseconds = new Date(this.state.time).getMilliseconds()
+        let milliseconds = new Date().getMilliseconds()
         return(
             <Text style={styles.clockText}>
                 {milliseconds}
@@ -38,11 +38,21 @@ export default class Clock extends Component {
 
     renderHourMinuteSec(){
         let splitDateArr = this.state.time.toLocaleString().split(' ');
-        let hourMinSec = splitDateArr[3].split(':');
+        let hour = 0, minutes = 0, seconds = 0;
 
-        let hour = +hourMinSec[0];
-        let minutes = hourMinSec[1];
-        let seconds =  hourMinSec[2];
+        if(splitDateArr != null){
+            let hourMinSec = splitDateArr[3].split(':');
+
+            hour = +hourMinSec[0];
+            if(hour == 0)
+                hour = 12;
+            if(hour > 12)
+                hour = hour - 12;
+
+            minutes = hourMinSec[1];
+            seconds =  hourMinSec[2];
+
+        }
         
         return(
             <Text style={styles.clockText}>
