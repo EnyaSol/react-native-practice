@@ -1,13 +1,29 @@
 import React, { Component } from 'react';
-import { StyleSheet, View} from 'react-native';
+import { StyleSheet, View, Dimensions} from 'react-native';
 import {Header, ThemeProvider, Button } from 'react-native-elements';
-import Clock from './components/clock';
-import ShareButton from './components/shareButton';
-import LikeButton from './components/likeButton';
+import { TabView, TabBar, SceneMap} from 'react-native-tab-view';
+
+import HomePage from './components/homepage/homepage';
 
 import AppFontLoader from './components/fontLoader';
 
+const HomeRoute = () => (
+  <HomePage/>
+)
+
+const FeedRoute = () => (
+  <View style={[styles.scene, { backgroundColor: '#673ab7' }]}/>
+)
+
+
 export default class App extends React.Component {
+  state = {
+    index: 0,
+    routes: [
+      { key: 'home', title: 'Home'},
+      { key: 'feed', title: 'Feed'},
+    ]
+  }
 
   render() {
     return (
@@ -17,18 +33,16 @@ export default class App extends React.Component {
             centerComponent={{ text: 'Timerr', style: styles.headerText }}
             rightComponent={{ icon: 'home', color: '#fff' }}
         />
-        <View style={styles.container}>
-          <Clock style={styles.clock}/>
-          <View style={styles.buttonContainer}>
-            <Button
-                title="Like this time"
-            />
-            <Button
-                title="Share this time"
-                buttonStyle={styles.shareButton}
-            />
-          </View>
-        </View>
+        <TabView
+          navigationState={this.state}
+          renderScene={SceneMap({
+          home: HomeRoute,
+          feed: FeedRoute,
+          })}
+          tabBarPosition="bottom"
+          onIndexChange={index => this.setState({ index})}
+          initialLayout={{ width: Dimensions.get('window').width}}
+          />
       </ThemeProvider>
     );
   }
@@ -36,28 +50,11 @@ export default class App extends React.Component {
 
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: 'column',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
-  buttonContainer: {
-    alignSelf: 'stretch',
-    flexDirection: 'row',
-    justifyContent: 'space-around',
-    alignItems: 'center',
-  },
   headerText: {
     fontSize: 20,
     color: '#fff'
   },
-  clock :{
-    flex: 1,
-    backgroundColor: 'red'
+  scene: {
+    flex: 1
   },
-  shareButton:{
-    backgroundColor: 'green'
-  }
-
 });
