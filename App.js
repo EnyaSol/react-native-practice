@@ -3,16 +3,16 @@ import { StyleSheet, View, Dimensions} from 'react-native';
 import {Header, ThemeProvider, Button } from 'react-native-elements';
 import { TabView, TabBar, SceneMap} from 'react-native-tab-view';
 
-import HomePage from './components/homepage/homepage';
+import HomePage from './components/home/homepage';
+import Feed from './components/feed/feed';
 
-import AppFontLoader from './components/fontLoader';
 
 const HomeRoute = () => (
-  <HomePage/>
+  <HomePage />
 )
 
 const FeedRoute = () => (
-  <View style={[styles.scene, { backgroundColor: '#673ab7' }]}/>
+  <Feed/>
 )
 
 
@@ -22,7 +22,8 @@ export default class App extends React.Component {
     routes: [
       { key: 'home', title: 'Home'},
       { key: 'feed', title: 'Feed'},
-    ]
+    ],
+    likedTime: {}
   }
 
   render() {

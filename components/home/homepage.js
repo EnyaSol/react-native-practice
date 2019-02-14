@@ -4,6 +4,9 @@ import {Button} from "react-native-elements";
 import Clock from "../clock";
 
 export default class HomePage extends Component {
+
+
+
     render(){
         return(
             <View style={styles.container}>
