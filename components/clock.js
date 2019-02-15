@@ -23,6 +23,7 @@ export default class Clock extends Component {
         this.setState({
             time: new Date()
         })
+        this.props.updateTime((new Date()))
     }
 
     renderMilliseconds(){
