@@ -10,7 +10,7 @@ import Feed from './components/feed/feed';
 export default class App extends React.Component {
 
   state = {
-      index: 0,
+      index: 1,
       routes: [
         {key: 'home', title: 'Home'},
         {key: 'feed', title: 'Feed'},
@@ -41,7 +41,7 @@ export default class App extends React.Component {
         let feedCard = {
           type: 'time',
           time: time.toLocaleString(),
-          message: 'A user liked ' + time + ' at ' + time + '!'
+          message: 'A user liked ' + time.toLocaleString() + ' at ' + time.toLocaleString() + '!'
         };
         alert("YOU LIKED THIS TIME: " + feedCard.time + " of message: " + feedCard.message)
 

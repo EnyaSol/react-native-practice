@@ -5,9 +5,10 @@ export default class Card extends Component {
     render(props){
         return(
             <View style={styles.cardContainer}>
-                <Text>{this.props.time}</Text>
-                <Text>{this.props.message}</Text>
-
+                <View style={styles.cardText}>
+                    <Text style={styles.cardTime}>{this.props.time}</Text>
+                    <Text style={styles.cardMessage}>{this.props.message}</Text>
+                </View>
             </View>
         )
     }
@@ -15,8 +16,21 @@ export default class Card extends Component {
 
 const styles = StyleSheet.create({
     cardContainer: {
-        flex: 1,
-        color: 'black'
+        height: 132,
+        width: 340,
+        backgroundColor: '#e1e9f7',
+        margin: 10,
+        borderRadius: 8
+
+    },
+    cardText:{
+        padding: 10
+    },
+    cardTime:{
+      fontSize: 15
+    },
+    cardMessage: {
+        fontSize: 20
     }
 })
 

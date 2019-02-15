@@ -6,13 +6,6 @@ import Card from './card';
 export default class Feed extends Component {
 
     render(props){
-        if(this.props.feedCards.length > 0){
-            console.log("Feed Card is being provided: ")
-            console.log(this.props.feedCards.length)
-        }
-
-
-
         return(
             <View style={styles.feedContainer}>
                 {
@@ -37,6 +30,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        flexDirection: 'column',
 
     },
     feedCard: {
