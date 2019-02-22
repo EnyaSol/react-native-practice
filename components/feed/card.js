@@ -1,5 +1,7 @@
 import React, { Component } from 'React';
 import {View, Text, StyleSheet} from 'react-native'
+import LikeButton from "../likeButton";
+import {Button} from "react-native-elements";
 
 export default class Card extends Component {
     render(props){
@@ -9,6 +11,10 @@ export default class Card extends Component {
                     <Text style={styles.cardTime}>{this.props.time}</Text>
                     <Text style={styles.cardMessage}>{this.props.message}</Text>
                 </View>
+                <Button
+                    title="Like this time"
+                    style={styles.likeButton}
+                />
             </View>
         )
     }
@@ -20,8 +26,7 @@ const styles = StyleSheet.create({
         width: 340,
         backgroundColor: '#e1e9f7',
         margin: 10,
-        borderRadius: 8
-
+        borderRadius: 8,
     },
     cardText:{
         padding: 10
@@ -31,6 +36,10 @@ const styles = StyleSheet.create({
     },
     cardMessage: {
         fontSize: 20
+    },
+    likeButton: {
+        width: 96,
+        height: 24
     }
 })
 

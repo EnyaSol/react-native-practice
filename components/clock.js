@@ -56,8 +56,8 @@ export default class Clock extends Component {
         }
         
         return(
-            <Text style={styles.clockText}>
-                {hour} : {minutes} : {seconds}
+            <Text style={styles.clockHourText}>
+                {hour}:{minutes}:{seconds}
             </Text>
         )
     }
@@ -74,7 +74,7 @@ export default class Clock extends Component {
 
         }
         return(
-            <Text style={styles.clockText}>
+            <Text style={styles.clockMonthText}>
                 {month} - {date} - {year}
             </Text>)
     }
@@ -94,17 +94,20 @@ export default class Clock extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        height: 200,
-        width: 200,
-        borderRadius: 200 / 2,
+        flex: 2,
+        alignSelf: 'stretch',
         flexDirection: 'column',
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#485263'
     },
-    clockText: {
-        fontSize: 25,
+    clockMonthText: {
+        fontSize: 35,
         fontFamily: 'Roboto',
-        color: 'white'
+        color: '#485263'
+    },
+    clockHourText: {
+        fontSize: 45,
+        fontFamily: 'Roboto',
+        color: '#485263'
     }
 });

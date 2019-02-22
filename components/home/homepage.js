@@ -22,7 +22,7 @@ export default class HomePage extends Component {
             <View style={styles.container}>
                 <Clock
                     updateTime={this._updateCurrTime}
-                    style={styles.clock}/>
+                />
                 <View style={styles.buttonContainer}>
                     <Button
                         title="Like this time"
@@ -42,18 +42,15 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         flexDirection: 'column',
-        justifyContent: 'space-around',
+        justifyContent: 'space-between',
         alignItems: 'center',
     },
     buttonContainer: {
+        flex: 3,
         alignSelf: 'stretch',
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-    },
-    clock :{
-        flex: 1,
-        backgroundColor: 'red'
     },
     shareButton:{
         backgroundColor: 'green'

@@ -1,27 +1,25 @@
 import React, {Component} from 'React';
-import {View, Text, StyleSheet} from 'react-native';
+import {View, Text, StyleSheet, FlatList} from 'react-native';
 
 import Card from './card';
 
 export default class Feed extends Component {
 
+    _renderCard = (card) =>{
+      return(
+            <Card
+              key={card.item.time}
+              time={card.item.time}
+              message={card.item.message}/>)
+    }
+
     render(props){
         return(
-            <View style={styles.feedContainer}>
-                {
-                    this.props.feedCards.map(
-                        function(card){
-                            return(
-                                <Card
-                                    key={card.time}
-                                    time={card.time}
-                                    message={card.message}/>
-                            )
-                        }
-                    )
-                }
-            </View>)
-
+          <FlatList
+            data={this.props.feedCards}
+            renderItem={this._renderCard}
+            />
+          )
     }
 }
 
