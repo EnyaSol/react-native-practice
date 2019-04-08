@@ -19,30 +19,19 @@ export default class Clock extends Component {
         clearInterval(this.intervalID);
     }
 
-    tick(){
+    tick() {
         this.setState({
             time: new Date()
         })
         this.props.updateTime((new Date()))
     }
 
-    renderMilliseconds(){
-        let milliseconds = new Date().getMilliseconds();
-        return(
-            <Text style={styles.clockText}>
-                {milliseconds}
-            </Text>
-        )
-
-    }
-
 
     renderHourMinuteSec(){
         let splitDateArr = this.state.time.toLocaleString().split(' ');
         let hour = 0, minutes = 0, seconds = 0;
-
         if(splitDateArr != null){
-            let hourMinSec = splitDateArr[3].split(':');
+            let hourMinSec = splitDateArr[4].split(':');
 
             hour = +hourMinSec[0];
             if(hour == 0)
@@ -69,8 +58,9 @@ export default class Clock extends Component {
 
             day = splitDateArr[0];
             month = splitDateArr[1];
-            date = splitDateArr[2];
-            year = splitDateArr[4];
+            date = splitDateArr[3];
+            year = splitDateArr[5];
+
 
         }
         return(

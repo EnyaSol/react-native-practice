@@ -10,7 +10,7 @@ import Feed from './components/feed/feed';
 export default class App extends React.Component {
 
   state = {
-      index: 1,
+      index: 0,
       routes: [
         {key: 'home', title: 'Home'},
         {key: 'feed', title: 'Feed'},
@@ -29,7 +29,7 @@ export default class App extends React.Component {
         // Remove default entry
         newCards.shift();
         // Add the new feedcard
-        newCards.concat(feedCard);
+        newCards.unshift(feedCard);
 
         this.setState(prevState => ({
             feedCard: newCards,
@@ -43,16 +43,15 @@ export default class App extends React.Component {
           time: time.toLocaleString(),
           message: 'A user liked ' + time.toLocaleString() + ' at ' + time.toLocaleString() + '!'
         };
-        alert("YOU LIKED THIS TIME: " + feedCard.time + " of message: " + feedCard.message)
 
         if(this.state.isEmptyFeed) {
             this._onFirstLike(feedCard);
+        }else {
+            this.setState(prevState => ({
+                feedCards: [feedCard,...prevState.feedCards]
+            }));
         }
 
-        this.setState(prevState => ({
-            feedCards: [...prevState.feedCards, feedCard]
-        }));
-        console.log(this.state.feedCards)
       }
 
    _renderScene = ({route}) => {
