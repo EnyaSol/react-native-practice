@@ -11,10 +11,16 @@ export default class Card extends Component {
                     <Text style={styles.cardTime}>{this.props.time}</Text>
                     <Text style={styles.cardMessage}>{this.props.message}</Text>
                 </View>
-                <Button
-                    title="Like this time"
-                    style={styles.likeButton}
-                />
+                <View style={styles.cardButtonContainer}>
+                    <Button
+                        title="Like this time!"
+                        buttonStyle={styles.likeButton}
+                    />
+                    <Button
+                        title="Share this time!"
+                        buttonStyle={styles.shareButton}
+                    />
+                </View>
             </View>
         )
     }
@@ -27,9 +33,10 @@ const styles = StyleSheet.create({
         backgroundColor: '#e1e9f7',
         margin: 10,
         borderRadius: 8,
+
     },
     cardText:{
-        padding: 10
+        padding: 10,
     },
     cardTime:{
       fontSize: 15
@@ -37,9 +44,16 @@ const styles = StyleSheet.create({
     cardMessage: {
         fontSize: 20
     },
+    cardButtonContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+    },
     likeButton: {
-        width: 96,
-        height: 24
+    },
+    shareButton: {
+
+        backgroundColor: 'green'
     }
 })
 

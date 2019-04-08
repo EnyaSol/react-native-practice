@@ -79,13 +79,12 @@ export default class App extends React.Component {
           renderScene={this._renderScene}
           tabBarPosition="bottom"
           onIndexChange={index => this.setState({ index})}
-          initialLayout={{ width: Dimensions.get('window').width}}
+          initialLayout={{ width: Dimensions.get('window').width, height: Dimensions.get('window').height}}
           />
       </ThemeProvider>
     );
   }
 }
-
 
 const styles = StyleSheet.create({
   headerText: {

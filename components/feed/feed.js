@@ -16,8 +16,9 @@ export default class Feed extends Component {
     render(props){
         return(
           <FlatList
-            data={this.props.feedCards}
-            renderItem={this._renderCard}
+                data={this.props.feedCards}
+                renderItem={this._renderCard}
+                keyExtractor={(item, index) => index.toString()}
             />
           )
     }
