@@ -25,14 +25,8 @@ export default class App extends React.Component {
 
 
     _onFirstLike = (feedCard) => {
-        let newCards = this.state.feedCards;
-        // Remove default entry
-        newCards.shift();
-        // Add the new feedcard
-        newCards.unshift(feedCard);
-
         this.setState(prevState => ({
-            feedCard: newCards,
+            feedCards: [feedCard],
             isEmptyFeed: false,
         }));
     }
@@ -41,7 +35,7 @@ export default class App extends React.Component {
         let feedCard = {
           type: 'time',
           time: time.toLocaleString(),
-          message: 'A user liked ' + time.toLocaleString() + ' at ' + time.toLocaleString() + '!'
+          message: 'A user liked ' + time.toLocaleTimeString() + '!'
         };
 
         if(this.state.isEmptyFeed) {
